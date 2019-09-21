@@ -16,11 +16,15 @@ This program begins in a class titled "FoodTruckApp".
 prompted to enter the number of trucks he/she wishes to rate.
 
 The user is then asked to:
+
 2. enter the name of the first truck
+
 3. enter the type of food offered
+
 4. enter the rating they wish to give the food trucks
 
-5. This is repeated each time for the number of trucks the user entered in step
+5.
+This is repeated each time for the number of trucks the user entered in step
  1.However, if the user types "quit" at any time during the 2nd step - which
  asks for the name of the truck - the user will break out of the loop and the
  number of truck objects created will only be equal to the number of trucks
@@ -54,7 +58,7 @@ If the user selects option 4 - the exit choice - the program displays a
 goodbye message and ends.
 
 If the user selects a number outside the range of 1 - 4, a message displays
-informing the suer that the number selected is not a valid option. The loop
+informing the user that the number selected is not a valid option. The loop
 then continues and displays the menu again
 
 ###Lessons Learned
