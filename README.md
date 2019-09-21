@@ -23,12 +23,11 @@ The user is then asked to:
 
 4. enter the rating they wish to give the food trucks
 
-5.
-This is repeated each time for the number of trucks the user entered in step
- 1.However, if the user types "quit" at any time during the 2nd step - which
- asks for the name of the truck - the user will break out of the loop and the
- number of truck objects created will only be equal to the number of trucks
- they rated. Each truck object is stored into an object array.
+5. This is repeated each time for the number of trucks the user entered in step
+1.However, if the user types "quit" at any time during the 2nd step - which
+asks for the name of the truck - the user will break out of the loop and the
+number of truck objects created will only be equal to the number of trucks
+they rated. Each truck object is stored into an object array.
 
 ----If the user decides to "quit" the program during the first input (meaning there
 was never an object truck created) the program ends and a goodbye message is
@@ -36,7 +35,7 @@ displayed----
 
 After step 5 is completed, and the loop has ended, another method is called
 which displays a menu that was constructed using a switch statement. The switch
-statement loops until the users ends the program by selecting option 4.
+statement loops until the users ends the program by selecting option 4.   
 
 If the user selects option 1 - choice to see the average truck rating - then
 a method is called that passes the truck array and uses a for loop to parse out
