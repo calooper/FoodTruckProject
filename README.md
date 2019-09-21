@@ -2,13 +2,13 @@
 
 ### Week 2 Homework Project for Skill Distillery
 
-###Overview
+### Overview
 
 This program is designed to have a user rate a selected number of food trucks
 and display results of the highest rated truck, the average rating, and the
 full list of trucks.
 
-###Technologies Used
+### Technologies Used
 
 This program begins in a class titled "FoodTruckApp".
 
@@ -60,7 +60,7 @@ If the user selects a number outside the range of 1 - 4, a message displays
 informing the user that the number selected is not a valid option. The loop
 then continues and displays the menu again
 
-###Lessons Learned
+### Lessons Learned
 
 This program was a great opportunity to really take the time to
 conceptualize how I was going to begin the overall design. The truck ID,
