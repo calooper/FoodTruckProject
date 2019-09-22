@@ -19,16 +19,18 @@ public class FoodTruckApp {
 		FoodTruck ft;
 		int foodTrucksEntered = 0;
 		boolean hasValues = true;
+		boolean ratingInBound = true;
+		double truckRating = 0.0;
 
 		System.out.println("Welcome to the food truck rating app!! ");
-		System.out.println("How many food trucks do you want to rate? 1 - 5 ");
+		System.out.println("How many food trucks do you want to rate? ");
 
 		int numOfRatings = scanner.nextInt();
 		scanner.nextLine();
 
-		ftArr = new FoodTruck[numOfRatings]; // allocating appropriate memory spaces to
+		ftArr = new FoodTruck[numOfRatings];
 
-		if (!(numOfRatings > 0) || !(numOfRatings <= 5)) {
+		if (!(numOfRatings > 0)) {
 			System.out.println("Please start over and enter a number between 1 and 5 ");
 		} else {
 
@@ -43,9 +45,17 @@ public class FoodTruckApp {
 					System.out.println("What type of food does it offer? ");
 					String foodType = scanner.nextLine();
 
-					System.out.println("How would you rate this truck? ( 1 - 5 ) ");
-					double truckRating = scanner.nextDouble();
-					scanner.nextLine();
+					while (ratingInBound == true) {
+						System.out.println("How would you rate this truck? ( 0 - 5 ) ");
+						truckRating = scanner.nextDouble();
+						scanner.nextLine();
+
+						if (truckRating > 5 || truckRating < 0) {
+
+							continue;
+						} else
+							break;
+					}
 
 					ft = new FoodTruck(truckName, foodType, truckRating);
 
@@ -80,7 +90,7 @@ public class FoodTruckApp {
 
 		while (keepGoing) {
 			System.out.println("-----------------------------------------");
-			System.out.println("Please select a choice number to display resulst");
+			System.out.println("Please select a number to display results");
 			System.out.println(" 1. Average Rating of all food trucks entered");
 			System.out.println(" 2. Highest rated food truck ");
 			System.out.println(" 3. List of all food trucks ");
@@ -90,20 +100,22 @@ public class FoodTruckApp {
 
 			switch (menuNum) {
 			case 1:
-				Double rating = ((AverageRating(ftArr, foodTrucksEntered)) / (foodTrucksEntered));
-				System.out.println("Average user rating for " + foodTrucksEntered + " truck(s) is: " + rating);
+				Double rating = ((sumOfRating(ftArr, foodTrucksEntered)) / (foodTrucksEntered));
+				System.out.printf("Average user rating for " + foodTrucksEntered + " truck(s) is: " + "%.2f", rating);
 				System.out.println();
+
 				break;
 			case 2:
 				int highestRatedTruck = highestRating(ftArr, foodTrucksEntered);
-				System.out.println("---------------------Highest Rated Food Truck--------------------------");
+				System.out.println(
+						"----------------------------Highest Rated Food Truck---------------------------------");
 				System.out.println(ftArr[highestRatedTruck].toString());
-				System.out.println();
+
 				break;
 			case 3:
-				String allTheTrucks = AllTrucksEntered(ftArr, foodTrucksEntered);
+				String allTheTrucks = TrucksList(ftArr, foodTrucksEntered);
 				System.out.println("List of all the trucks entered:  " + allTheTrucks);
-				System.out.println();
+
 				break;
 			case 4:
 				System.out.println("Thanks for using the food truck app. Goodbye!  ");
@@ -112,7 +124,7 @@ public class FoodTruckApp {
 
 			default:
 				System.out.println("That is not a menu choice. Please try again");
-				break;
+				continue;
 
 			}
 
@@ -120,7 +132,7 @@ public class FoodTruckApp {
 
 	}
 
-	private Double AverageRating(FoodTruck[] ftArr, int foodTrucksEntered) {
+	private Double sumOfRating(FoodTruck[] ftArr, int foodTrucksEntered) {
 		double sumFoodRating = 0;
 
 		for (int i = 0; i < foodTrucksEntered; i++) {
@@ -148,22 +160,23 @@ public class FoodTruckApp {
 
 	}
 
-	private String AllTrucksEntered(FoodTruck[] ftArr, int foodTrucksEntered) {
-		String allTheTrucks = "";
-		String allTheTrucksCommas = "";
+	private String TrucksList(FoodTruck[] ftArr, int foodTrucksEntered) {
+		String listOfTrucks = "";
+
+		String listOfTrucksWithCommas = "";
 
 		for (int i = 0; i < foodTrucksEntered; i++) {
-			allTheTrucks = ftArr[i].getName();
+			listOfTrucks = ftArr[i].getName();
 
 			if (i < (foodTrucksEntered - 2)) {
-				allTheTrucksCommas += allTheTrucks + ", ";
+				listOfTrucksWithCommas += listOfTrucks + ", ";
 			} else if (i == (foodTrucksEntered - 2)) {
-				allTheTrucksCommas += allTheTrucks + ", & ";
+				listOfTrucksWithCommas += listOfTrucks + " & ";
 			} else
-				allTheTrucksCommas += allTheTrucks + " ";
+				listOfTrucksWithCommas += listOfTrucks + " ";
 
 		}
-		return allTheTrucksCommas;
+		return listOfTrucksWithCommas;
 
 	}
 }

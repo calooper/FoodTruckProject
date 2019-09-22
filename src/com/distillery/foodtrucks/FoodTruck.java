@@ -25,12 +25,10 @@ public class FoodTruck {
 
 	// M E T H O D S
 	public String getName() {
-
 		return name;
 	}
 
 	public void setName(String name) {
-
 		this.name = name;
 
 	}
